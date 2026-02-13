@@ -8,8 +8,8 @@ function App(): React.JSX.Element {
                 Kathleen Higgins: UD CISC275 with React Hooks and TypeScript
             </header>
             <p>
-                Edit <code>src/App.tsx</code> and save. This page will
-                automatically reload.
+                Hello World Edit <code>src/App.tsx</code> and save. This page
+                will automatically reload.
             </p>
         </div>
     );
