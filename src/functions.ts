@@ -1,3 +1,5 @@
+import { findAllByTestId } from "@testing-library/dom";
+
 /**
  * Consumes a single temperature in Fahrenheit (a number) and converts to Celsius
  * using this formula:
@@ -30,7 +32,7 @@ export function add3(first: number, second: number, third: number): number {
  * mark added to the end.
  */
 export function shout(message: string): string {
-    return "";
+    return message.toUpperCase() + "!";
 }
 
 /**
@@ -38,7 +40,8 @@ export function shout(message: string): string {
  * mark. Do not use an `if` statement in solving this question.
  */
 export function isQuestion(message: string): boolean {
-    return true;
+    const lastChar: string = message.charAt(message.length - 1);
+    return lastChar === "?" ? true : false;
 }
 
 /**
@@ -47,5 +50,10 @@ export function isQuestion(message: string): boolean {
  * upper or lower case), then return `false`. Otherwise, return `null`.
  */
 export function convertYesNo(word: string): boolean | null {
-    return true;
+    if (word === "YES" || word === "yes") {
+        return true;
+    } else if (word == "no" || word == "NO") {
+        return false;
+    }
+    return null;
 }
