@@ -1,4 +1,4 @@
-import { findAllByTestId } from "@testing-library/dom";
+// import { findAllByTestId } from "@testing-library/dom";
 
 /**
  * Consumes a single temperature in Fahrenheit (a number) and converts to Celsius
