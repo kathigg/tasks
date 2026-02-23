@@ -38,7 +38,12 @@ export function stringsToIntegers(numbers: string[]): number[] {
  */
 // Remember, you can write functions as lambdas too! They work exactly the same.
 export const removeDollars = (amounts: string[]): number[] => {
-    return [];
+    const final = amounts.map((amounts: string): number =>
+        isNaN(parseInt(amounts.replace("$", ""))) ? 0 : (
+            parseInt(amounts.replace("$", ""))
+        ),
+    );
+    return final;
 };
 
 /**
@@ -47,7 +52,12 @@ export const removeDollars = (amounts: string[]): number[] => {
  * in question marks ("?").
  */
 export const shoutIfExclaiming = (messages: string[]): string[] => {
-    return [];
+    const final = messages
+        .filter((messages: string): boolean => !messages.endsWith("?"))
+        .map((messages: string): string =>
+            messages.endsWith("!") ? messages.toUpperCase() : messages,
+        );
+    return final;
 };
 
 /**
@@ -55,7 +65,7 @@ export const shoutIfExclaiming = (messages: string[]): string[] => {
  * 4 letters long.
  */
 export function countShortWords(words: string[]): number {
-    return 0;
+    return words.filter((words: string): boolean => words.length < 4).length;
 }
 
 /**
@@ -64,9 +74,13 @@ export function countShortWords(words: string[]): number {
  * then return true.
  */
 export function allRGB(colors: string[]): boolean {
-    return false;
+    return colors.length === 0 ?
+            true
+        :   colors.every(
+                (colors: string): boolean =>
+                    colors === "red" || colors === "green" || colors === "blue",
+            );
 }
-
 /**
  * Consumes an array of numbers, and produces a string representation of the
  * numbers being added together along with their actual sum.
