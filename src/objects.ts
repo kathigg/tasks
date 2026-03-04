@@ -8,9 +8,18 @@ import { Question, QuestionType } from "./interfaces/question";
 export function makeBlankQuestion(
     id: number,
     name: string,
-    type: QuestionType
+    type: QuestionType,
 ): Question {
-    return {};
+    return {
+        id: id,
+        name: name,
+        type: type,
+        body: "",
+        expected: "",
+        options: [],
+        points: 1,
+        published: false,
+    };
 }
 
 /**
@@ -21,7 +30,9 @@ export function makeBlankQuestion(
  * HINT: Look up the `trim` and `toLowerCase` functions.
  */
 export function isCorrect(question: Question, answer: string): boolean {
-    return false;
+    return question.expected.toLowerCase() === answer.toLowerCase().trim() ?
+            true
+        :   false;
 }
 
 /**
@@ -31,7 +42,9 @@ export function isCorrect(question: Question, answer: string): boolean {
  * be exactly one of the options.
  */
 export function isValid(question: Question, answer: string): boolean {
-    return false;
+    return question.type === "short_answer_question" ?
+            true
+        :   question.options.includes(answer);
 }
 
 /**
@@ -115,7 +128,7 @@ export function mergeQuestion(
     id: number,
     name: string,
     contentQuestion: Question,
-    { points }: { points: number }
+    { points }: { points: number },
 ): Question {
     return contentQuestion;
 }
