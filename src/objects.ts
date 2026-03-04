@@ -111,12 +111,9 @@ export function publishQuestion(question: Question): Question {
  */
 export function duplicateQuestion(id: number, oldQuestion: Question): Question {
     return {
-        body: oldQuestion.body,
-        type: oldQuestion.type,
-        options: oldQuestion.options,
-        expected: oldQuestion.expected,
-        points: oldQuestion.points,
+        ...oldQuestion,
         published: false,
+        id: id,
         name: "Copy of " + oldQuestion.name,
     };
 }
@@ -129,7 +126,7 @@ export function duplicateQuestion(id: number, oldQuestion: Question): Question {
  * Check out the subsection about "Nested Fields" for more information.
  */
 export function addOption(question: Question, newOption: string): Question {
-    return question;
+    return { ...question, options: [...question.options, newOption] };
 }
 
 /**
@@ -146,5 +143,14 @@ export function mergeQuestion(
     contentQuestion: Question,
     { points }: { points: number },
 ): Question {
-    return contentQuestion;
+    return {
+        id: id,
+        name: name,
+        body: contentQuestion.body,
+        type: contentQuestion.type,
+        options: contentQuestion.options,
+        expected: contentQuestion.expected,
+        published: false,
+        points: points,
+    };
 }
