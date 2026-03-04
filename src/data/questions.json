@@ -62,26 +62,21 @@
             "points": 1,
             "published": true
         },
-        {
-            "id": 9,
-            "name": "Shapes",
-            "body": "What shape can you make with one line?",
-            "type": "multiple_choice_question",
-            "options": ["square", "triangle", "circle"],
-            "expected": "circle",
-            "points": 2,
-            "published": false
-        }
-    ],
-<<<<<<< HEAD
-    "SIMPLE_QUESTIONS_2": [],
-    "EMPTY_QUESTIONS": [],
-    "TRIVIA_QUESTIONS": []
-=======
-    "TRIVIA_QUESTIONS": [
-        {
-            "id": 1,
-            "name": "Mascot",
+	        {
+	            "id": 9,
+	            "name": "Shapes",
+	            "body": "What shape can you make with one line?",
+	            "type": "multiple_choice_question",
+	            "options": ["square", "triangle", "circle"],
+	            "expected": "circle",
+	            "points": 2,
+	            "published": false
+	        }
+	    ],
+	    "TRIVIA_QUESTIONS": [
+	        {
+	            "id": 1,
+	            "name": "Mascot",
             "body": "What is the name of the UD Mascot?",
             "type": "multiple_choice_question",
             "options": ["Bluey", "YoUDee", "Charles the Wonder Dog"],
@@ -218,9 +213,8 @@
             "type": "short_answer_question",
             "options": [],
             "expected": "Yes",
-            "points": 100,
-            "published": true
-        }
-    ]
->>>>>>> upstream/task-nested
-}
+	            "points": 100,
+	            "published": true
+	        }
+	    ]
+	}
