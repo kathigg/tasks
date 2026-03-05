@@ -117,7 +117,8 @@ export function toCSV(questions: Question[]): string {
  * making the `text` an empty string, and using false for both `submitted` and `correct`.
  */
 export function makeAnswers(questions: Question[]): Answer[] {
-    return questions.map((questions: Question): Answer => ({questions.id, }  ))
+    // return questions.map((questions: Question): Answer => ({questions.id, }  ))
+    return [];
 }
 
 /***
