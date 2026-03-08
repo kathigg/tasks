@@ -159,7 +159,7 @@ What shape can you make with one line?
             published: true,
         });
         expect(
-            renameQuestion(SHAPE_QUESTION, "I COMPLETELY CHANGED THIS NAME"),
+            renameQuestion(SHAPE_QUESTION, "I COMPLETELY CHANGED THIS NAME")
         ).toEqual({
             id: 9,
             name: "I COMPLETELY CHANGED THIS NAME",
