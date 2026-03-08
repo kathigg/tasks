@@ -77,7 +77,7 @@ export function sumPublishedPoints(questions: Question[]): number {
     return questions
         .filter((questions: Question): boolean => questions.published)
         .reduce(
-            (currentSum: number, questions, Question) =>
+            (currentSum: number, questions) =>
                 currentSum + questions.points,
             0,
         );

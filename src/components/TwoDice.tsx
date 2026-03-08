@@ -7,7 +7,7 @@ import { Button } from "react-bootstrap";
  * module (which returns a random decimal between 0 up until 1) in order
  * to produce a random integer between 1 and 6 (inclusive).
  */
-export function d6(): number {
+function d6(): number {
     return 1 + Math.floor(Math.random() * 6);
 }
 
@@ -21,10 +21,22 @@ export function TwoDice(): React.JSX.Element {
             <div></div>
             <span data-testid="right-die">{diceTwo}</span>
             <div>
-                <Button onClick={() => updateDiceOne(d6())}>Roll Left</Button>
+                <Button
+                    onClick={() => {
+                        updateDiceOne(d6());
+                    }}
+                >
+                    Roll Left
+                </Button>
             </div>
             <div>
-                <Button onClick={() => updateDiceTwo(d6())}>Roll Right</Button>
+                <Button
+                    onClick={() => {
+                        updateDiceTwo(d6());
+                    }}
+                >
+                    Roll Right
+                </Button>
             </div>
             <div>
                 {diceOne === 1 && diceTwo === 1 ?

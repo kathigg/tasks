@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 
 export function CycleHoliday(): React.JSX.Element {
-    const [holiday, setHoliday] = useState<string>("St. Lucia's Day 🕯️");
-    // saint hans day is summer, st lucias is christmas, fastelavn is february
     const holidays: string[] = [
         "St. Lucia's Day 🕯️",
         "Saint Hans Dag 🔥",
@@ -11,6 +9,8 @@ export function CycleHoliday(): React.JSX.Element {
         "Påskedag 🐣",
         "Mortensaften 🦆",
     ];
+    const [holiday, setHoliday] = useState<string>(holidays[0]);
+    // saint hans day is summer, st lucias is christmas, fastelavn is february
     function dateHolidayOrder(): void {
         setHoliday(
             holiday === "St. Lucia's Day 🕯️" ? "Fastelavn 👯‍♀️"
