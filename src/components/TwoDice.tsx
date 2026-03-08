@@ -19,7 +19,7 @@ export function TwoDice(): React.JSX.Element {
         <div>
             <span data-testid="left-die">{diceOne}</span>
             <div></div>
-            <span data-testid="right-dice">{diceTwo}</span>
+            <span data-testid="right-die">{diceTwo}</span>
             <div>
                 <Button onClick={() => updateDiceOne(d6())}>Roll Left</Button>
             </div>
