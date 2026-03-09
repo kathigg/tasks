@@ -1,0 +1,81 @@
+import React, { useState } from "react";
+import { Button, Row, Col } from "react-bootstrap";
+
+const PEOPLE = [
+    "Alan Turing",
+    "Grace Hopper",
+    "Ada Lovelace",
+    "Charles Babbage",
+    "Barbara Liskov",
+    "Margaret Hamilton",
+];
+
+interface AddMemberButtonProps {
+    option: string;
+    chooseMember: (newMember: string) => void;
+}
+
+function AddMemberButton({
+    option,
+    chooseMember,
+}: AddMemberButtonProps): React.JSX.Element {
+    return (
+        <Button
+            onClick={() => {
+                chooseMember(option);
+            }}
+            size="sm"
+        >
+            {option}
+        </Button>
+    );
+}
+
+export function ChooseTeam(): React.JSX.Element {
+    const [allOptions] = useState<string[]>(PEOPLE);
+    const [team, setTeam] = useState<string[]>([]);
+
+    function chooseMember(newMember: string): void {
+        setTeam((currentTeam: string[]) =>
+            currentTeam.includes(newMember) ? currentTeam : (
+                [...currentTeam, newMember]
+            ),
+        );
+    }
+
+    function clearTeam(): void {
+        setTeam([]);
+    }
+
+    return (
+        <div>
+            <h3>Choose Team</h3>
+            <Row>
+                <Col>
+                    {allOptions.map((option: string) => (
+                        <div key={option} style={{ marginBottom: "4px" }}>
+                            Add{" "}
+                            <AddMemberButton
+                                option={option}
+                                chooseMember={chooseMember}
+                            ></AddMemberButton>
+                        </div>
+                    ))}
+                </Col>
+                <Col>
+                    <strong>Team:</strong>
+                    {team.map((member: string) => (
+                        <li key={member}>{member}</li>
+                    ))}
+                    <Button
+                        onClick={() => {
+                            clearTeam();
+                        }}
+                    >
+                        Clear Team
+                    </Button>
+                </Col>
+            </Row>
+        </div>
+    );
+}
