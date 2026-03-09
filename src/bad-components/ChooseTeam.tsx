@@ -32,7 +32,7 @@ function AddMemberButton({
 }
 
 export function ChooseTeam(): React.JSX.Element {
-    const [allOptions, setAllOptions] = useState<string[]>(PEOPLE);
+    const [allOptions] = useState<string[]>(PEOPLE);
     const [team, setTeam] = useState<string[]>([]);
 
     function chooseMember(newMember: string): void {
@@ -55,12 +55,10 @@ export function ChooseTeam(): React.JSX.Element {
                     {allOptions.map((option: string) => (
                         <div key={option} style={{ marginBottom: "4px" }}>
                             Add{" "}
-                            <Button
-                                onClick={() => chooseMember(option)}
-                                size="sm"
-                            >
-                                {option}
-                            </Button>
+                            <AddMemberButton
+                                option={option}
+                                chooseMember={chooseMember}
+                            ></AddMemberButton>
                         </div>
                     ))}
                 </Col>
@@ -69,7 +67,13 @@ export function ChooseTeam(): React.JSX.Element {
                     {team.map((member: string) => (
                         <li key={member}>{member}</li>
                     ))}
-                    <Button onClick={() => clearTeam()}>Clear Team</Button>
+                    <Button
+                        onClick={() => {
+                            clearTeam();
+                        }}
+                    >
+                        Clear Team
+                    </Button>
                 </Col>
             </Row>
         </div>
