@@ -28,8 +28,10 @@ export function GiveAttempts(): React.JSX.Element {
     const [remainingAttempts, setRemainingAttempts] = useState<number>(3);
     const [requestedAttempts, setRequestedAttempts] = useState<number>(0);
 
-    function updatedRequests(event: React.ChangeEvent<HTMLInputElement>) {
-        setRequestedAttempts(event.target.valueAsNumber);
+    function updatedRequests(event: React.ChangeEvent<HTMLInputElement>): void {
+        if (!isNaN(parseInt(event.target.value))) {
+            setRequestedAttempts(event.target.valueAsNumber);
+        }
     }
     return (
         <div>
@@ -37,16 +39,25 @@ export function GiveAttempts(): React.JSX.Element {
             <div>
                 <Form.Group controlId="makeRequest">
                     <Form.Label>Number of requests: </Form.Label>
-                    <Form.Control value={requestedAttempts} />
+                    <Form.Control
+                        value={requestedAttempts}
+                        onChange={updatedRequests}
+                        type="number"
+                    />
                 </Form.Group>
             </div>
             <div>
                 <Button
-                    onClick={() => setRemainingAttempts(remainingAttempts + 1)}
+                    onClick={() =>
+                        setRemainingAttempts(
+                            requestedAttempts + remainingAttempts,
+                        )
+                    }
                 >
                     {"Gain"}
                 </Button>
                 <Button
+                    disabled={remainingAttempts === 0}
                     onClick={() => setRemainingAttempts(remainingAttempts - 1)}
                 >
                     {"Use"}
