@@ -18,25 +18,20 @@ export function CheckAnswer({
     expectedAnswer: string;
 }): React.JSX.Element {
     const [answer, setAnswer] = useState<string>("");
-    const [matches, setMatches] = useState<string>("❌");
+    const isCorrect = answer === expectedAnswer;
 
-    function updateName(event: React.ChangeEvent<HTMLInputElement>) {
-        setAnswer(event.target.value);
-        if (event.target.value === expectedAnswer) {
-            setMatches("✔️");
-        } else {
-            setMatches("❌");
-        }
-    }
     return (
         <div>
-            <div>
-                <Form.Group controlId="checkAnswer">
-                    <Form.Label>Answer:</Form.Label>
-                    <Form.Control value={answer} onChange={updateName} />
-                </Form.Group>
-            </div>
-            <div>{matches}</div>
+            <Form.Group controlId="checkAnswer">
+                <Form.Label>Answer:</Form.Label>
+                <Form.Control
+                    value={answer}
+                    onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+                        setAnswer(event.target.value)
+                    }
+                />
+            </Form.Group>
+            <div>{isCorrect ? "✔️" : "❌"}</div>
         </div>
     );
 }
