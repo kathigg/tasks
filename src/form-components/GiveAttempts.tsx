@@ -48,17 +48,19 @@ export function GiveAttempts(): React.JSX.Element {
             </div>
             <div>
                 <Button
-                    onClick={() =>
+                    onClick={() => {
                         setRemainingAttempts(
                             requestedAttempts + remainingAttempts,
-                        )
-                    }
+                        );
+                    }}
                 >
                     {"Gain"}
                 </Button>
                 <Button
                     disabled={remainingAttempts === 0}
-                    onClick={() => setRemainingAttempts(remainingAttempts - 1)}
+                    onClick={() => {
+                        setRemainingAttempts(remainingAttempts - 1);
+                    }}
                 >
                     {"Use"}
                 </Button>
