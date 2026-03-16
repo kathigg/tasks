@@ -28,7 +28,9 @@ export function ChangeColor(): React.JSX.Element {
                         label={color}
                         value={color}
                         checked={selectedColor === color}
-                        onChange={() => setSelectedColor(color)}
+                        onChange={() => {
+                            setSelectedColor(color);
+                        }}
                     />
                 ))}
             </Form.Group>

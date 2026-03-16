@@ -45,19 +45,19 @@ export function GiveAttempts(): React.JSX.Element {
                 <Form.Control
                     type="number"
                     value={requestedAttempts}
-                    onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-                        setRequestedAttempts(event.target.value)
-                    }
+                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                        setRequestedAttempts(event.target.value);
+                    }}
                 />
             </Form.Group>
             <div>
-                <Button
-                    onClick={gainAttempts}
-                >
+                <Button onClick={gainAttempts}>
                     {"Gain"}
                 </Button>
                 <Button
-                    onClick={() => setRemainingAttempts(remainingAttempts - 1)}
+                    onClick={() => {
+                        setRemainingAttempts(remainingAttempts - 1);
+                    }}
                     disabled={remainingAttempts <= 0}
                 >
                     {"Use"}
